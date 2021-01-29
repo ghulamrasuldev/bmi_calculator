@@ -7,7 +7,7 @@ const borderButtonHeight = 60.0,
     activeCardColor = Color(0xff1d1f33),
     inactiveCardColor = Color(0xff111428),
     bottomButtonColor = Colors.pink;
-enum Gender{Male,Female};
+enum Gender{Male,Female}
 
 class InputPAge extends StatefulWidget {
   @override
