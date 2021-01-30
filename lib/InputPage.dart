@@ -4,8 +4,6 @@ import 'GenderIcon.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'constants.dart';
 
-enum Gender { Male, Female }
-
 class InputPAge extends StatefulWidget {
   @override
   _InputPAgeState createState() => _InputPAgeState();
@@ -35,8 +33,8 @@ class _InputPAgeState extends State<InputPAge> {
                         });
                       },
                       color: selectedGender == Gender.Male
-                          ? activeCardColor
-                          : inactiveCardColor,
+                          ? kActiveCardColor
+                          : kInactiveCardColor,
                       child: GenderIcon(
                         icon: FontAwesomeIcons.mars,
                         text: "MALE",
@@ -51,8 +49,8 @@ class _InputPAgeState extends State<InputPAge> {
                         });
                       },
                       color: selectedGender == Gender.Female
-                          ? activeCardColor
-                          : inactiveCardColor,
+                          ? kActiveCardColor
+                          : kInactiveCardColor,
                       child: GenderIcon(
                         icon: FontAwesomeIcons.venus,
                         text: "FEMALE",
@@ -63,29 +61,53 @@ class _InputPAgeState extends State<InputPAge> {
               ),
             ),
             Expanded(
-              flex: 3,
-              child: ReusableCard(color: activeCardColor),
+              flex: 2,
+              child: ReusableCard(
+                color: kActiveCardColor,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Center(
+                      child: Text(
+                        'HEIGHT',
+                        style: kLabelTextStyle,
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.baseline,
+                      children: [
+                        Text(
+                          '180',
+                          style: kThickLabelTextStyle
+                        ),
+                        Text('cm',style: kLabelTextStyle,),
+                      ],
+                    )
+                  ],
+                ),
+              ),
             ),
             Expanded(
               flex: 2,
               child: Row(
                 children: [
                   Expanded(
-                    child: ReusableCard(color: activeCardColor),
+                    child: ReusableCard(color: kActiveCardColor),
                   ),
                   Expanded(
-                    child: ReusableCard(color: activeCardColor),
+                    child: ReusableCard(color: kActiveCardColor),
                   ),
                 ],
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(5.0),
+              padding: const EdgeInsets.all(10.0),
               child: FlatButton(
-                height: borderButtonHeight,
+                height: kBorderButtonHeight,
                 onPressed: () {},
                 child: Text('Press me'),
-                color: bottomButtonColor,
+                color: kBottomButtonColor,
               ),
             )
           ],

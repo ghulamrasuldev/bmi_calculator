@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
-const labelTextStyle = TextStyle(
+
+enum Gender { Male, Female }
+
+const kLabelTextStyle = TextStyle(
   fontSize: 18,
   color: Color(0xff8d8e98),
 );
-const borderButtonHeight = 60.0,
-    activeCardColor = Color(0xff1d1f33),
-    inactiveCardColor = Color(0xff111428),
-    bottomButtonColor = Colors.pink;
-
+const kThickLabelTextStyle = TextStyle(
+  fontWeight: FontWeight.w900,
+  fontSize: 50,
+);
+const kBorderButtonHeight = 60.0,
+    kActiveCardColor = Color(0xff1d1f33),
+    kInactiveCardColor = Color(0xff111428),
+    kBottomButtonColor = Colors.pink;

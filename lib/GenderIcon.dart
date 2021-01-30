@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/constants.dart';
 import 'package:flutter/material.dart';
 class GenderIcon extends StatelessWidget {
   final IconData icon;
@@ -19,9 +20,7 @@ class GenderIcon extends StatelessWidget {
         ),
         Text(
           text,
-          style: TextStyle(
-            fontSize: 18,
-          ),
+          style: kLabelTextStyle,
         ),
       ],
     );
