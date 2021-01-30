@@ -2,12 +2,9 @@ import 'package:flutter/material.dart';
 import 'ReusableCard.dart';
 import 'GenderIcon.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'constants.dart';
 
-const borderButtonHeight = 60.0,
-    activeCardColor = Color(0xff1d1f33),
-    inactiveCardColor = Color(0xff111428),
-    bottomButtonColor = Colors.pink;
-enum Gender{Male,Female}
+enum Gender { Male, Female }
 
 class InputPAge extends StatefulWidget {
   @override
@@ -32,12 +29,14 @@ class _InputPAgeState extends State<InputPAge> {
                 children: [
                   Expanded(
                     child: ReusableCard(
-                      onPressed: (){
+                      onPressed: () {
                         setState(() {
                           selectedGender = Gender.Male;
                         });
                       },
-                      color: selectedGender == Gender.Male ? activeCardColor : inactiveCardColor,
+                      color: selectedGender == Gender.Male
+                          ? activeCardColor
+                          : inactiveCardColor,
                       child: GenderIcon(
                         icon: FontAwesomeIcons.mars,
                         text: "MALE",
@@ -46,12 +45,14 @@ class _InputPAgeState extends State<InputPAge> {
                   ),
                   Expanded(
                     child: ReusableCard(
-                      onPressed: (){
+                      onPressed: () {
                         setState(() {
                           selectedGender = Gender.Female;
                         });
                       },
-                      color: selectedGender == Gender.Female ? activeCardColor : inactiveCardColor,
+                      color: selectedGender == Gender.Female
+                          ? activeCardColor
+                          : inactiveCardColor,
                       child: GenderIcon(
                         icon: FontAwesomeIcons.venus,
                         text: "FEMALE",
@@ -91,5 +92,3 @@ class _InputPAgeState extends State<InputPAge> {
         ));
   }
 }
-
-
