@@ -11,7 +11,7 @@ class InputPAge extends StatefulWidget {
 
 class _InputPAgeState extends State<InputPAge> {
   Gender selectedGender;
-  int height = 180, weight = 60 ;
+  int height = 180, weight = 60, age = 30;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -139,18 +139,27 @@ class _InputPAgeState extends State<InputPAge> {
                             ],
                           ),
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              FloatingActionButton(
-                                onPressed: null,
-                                child: Icon(Icons.remove),
-                                backgroundColor: kButtonColor,
+                              RoundedIconButton(
+                                icon: FontAwesomeIcons.minus,
+                                onPressed: () {
+                                  setState(() {
+                                    weight--;
+                                  });
+                                },
                               ),
-                              FloatingActionButton(
-                                onPressed: null,
-                                child: Icon(Icons.add),
-                                backgroundColor: kButtonColor,
-                              )
+                              SizedBox(
+                                width: 20,
+                              ),
+                              RoundedIconButton(
+                                icon: FontAwesomeIcons.plus,
+                                onPressed: () {
+                                  setState(() {
+                                    weight++;
+                                  });
+                                },
+                              ),
                             ],
                           )
                         ],
@@ -158,13 +167,59 @@ class _InputPAgeState extends State<InputPAge> {
                     ),
                   ),
                   Expanded(
-                    child: ReusableCard(color: kActiveCardColor),
+                    child: ReusableCard(
+                      color: kActiveCardColor,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'AGE',
+                            style: kLabelTextStyle,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                age.toString(),
+                                style: kThickLabelTextStyle,
+                              ),
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              RoundedIconButton(
+                                icon: FontAwesomeIcons.minus,
+                                onPressed: () {
+                                  setState(() {
+                                    age--;
+                                  });
+                                },
+                              ),
+                              SizedBox(
+                                width: 20,
+                              ),
+                              RoundedIconButton(
+                                icon: FontAwesomeIcons.plus,
+                                onPressed: () {
+                                  setState(() {
+                                    age++;
+                                  });
+                                },
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
                   ),
                 ],
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: const EdgeInsets.fromLTRB(10, 10, 10, 15),
               child: FlatButton(
                 height: kBorderButtonHeight,
                 onPressed: () {},
@@ -174,5 +229,24 @@ class _InputPAgeState extends State<InputPAge> {
             )
           ],
         ));
+  }
+}
+
+class RoundedIconButton extends StatelessWidget {
+  final IconData icon;
+  final Function onPressed;
+  RoundedIconButton({@required this.icon, @required this.onPressed});
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(
+      onPressed: onPressed,
+      constraints: BoxConstraints.tightFor(
+        height: 44,
+        width: 44,
+      ),
+      shape: CircleBorder(),
+      fillColor: kButtonColor,
+      child: Icon(icon),
+    );
   }
 }

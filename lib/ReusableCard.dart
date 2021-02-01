@@ -11,7 +11,7 @@ class ReusableCard extends StatelessWidget {
       onTap: onPressed,
       child: Container(
         child: child,
-        margin: EdgeInsets.all(5),
+        margin: EdgeInsets.all(8),
         decoration: BoxDecoration(
           color: color,
           borderRadius: BorderRadius.circular(10),
