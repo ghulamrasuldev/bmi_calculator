@@ -13,4 +13,6 @@ const kThickLabelTextStyle = TextStyle(
 const kBorderButtonHeight = 60.0,
     kActiveCardColor = Color(0xff1d1f33),
     kInactiveCardColor = Color(0xff111428),
-    kBottomButtonColor = Colors.pink;
+    kBottomButtonColor = Colors.pink,
+    kInactiveColor = Color(0xff8d8e98),
+    kButtonColor = Color(0xff4c4f5e);
