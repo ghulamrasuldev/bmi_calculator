@@ -10,6 +10,10 @@ const kThickLabelTextStyle = TextStyle(
   fontWeight: FontWeight.w900,
   fontSize: 44,
 );
+const kTitleTextStyle = TextStyle(
+  fontWeight: FontWeight.w900,
+  fontSize: 54,
+);
 const kBorderButtonHeight = 60.0,
     kActiveCardColor = Color(0xff1d1f33),
     kInactiveCardColor = Color(0xff111428),

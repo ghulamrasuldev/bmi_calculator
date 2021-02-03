@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'ResultPage.dart';
 import 'ReusableCard.dart';
 import 'GenderIcon.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -222,7 +223,9 @@ class _InputPAgeState extends State<InputPAge> {
               padding: const EdgeInsets.fromLTRB(10, 10, 10, 15),
               child: FlatButton(
                 height: kBorderButtonHeight,
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> ResultPage()));
+                },
                 child: Text('Press me'),
                 color: kBottomButtonColor,
               ),
