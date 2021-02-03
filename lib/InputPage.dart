@@ -1,9 +1,11 @@
+import 'package:bmi_calculator/brain.dart';
 import 'package:flutter/material.dart';
 import 'ResultPage.dart';
 import 'ReusableCard.dart';
 import 'GenderIcon.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'constants.dart';
+import 'brain.dart';
 
 class InputPAge extends StatefulWidget {
   @override
@@ -224,9 +226,14 @@ class _InputPAgeState extends State<InputPAge> {
               child: FlatButton(
                 height: kBorderButtonHeight,
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=> ResultPage()));
+                  Brain brain = Brain(height: height, weight: weight);
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> ResultPage(
+                    bmiresult: brain.calculateBMI(),
+                    resultText: brain.getResult(),
+                    interpretation: brain.getInterpretation(),
+                  )));
                 },
-                child: Text('Press me'),
+                child: Text('Calculate BMI'),
                 color: kBottomButtonColor,
               ),
             )
